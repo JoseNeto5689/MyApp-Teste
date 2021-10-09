@@ -1,64 +1,24 @@
 import React from 'react';
-import { Text, StyleSheet, StatusBar, View } from 'react-native';
+import { Text, StyleSheet, StatusBar, View, SafeAreaView, Image, Button, Alert} from 'react-native';
 import C1 from './components/comp1';
-//import style from './styles/style';
+import style from './styles/style';
 import Texto from './components/comp2';
+import Caixas from './components/comp3';
+import icon from './assets/icon.png'
 
+const exibir = condiction => {
+
+}
+const dobro = n => n*2
 export default function App() {
   return <>
-  <StatusBar/>
-  <View  style = {style.container}>
-  <View style = { style.container1 } ></View>
-  <View style = { style.container2 }></View>
-  <View style = { style.container3 }></View>
-  <View style = { style.container4 }></View>
-  </View>
+    <StatusBar/>
+
+    <View><Button title = "Mostrar Mensagem" onPress = {() => Alert.alert("Minha primeira palestra")}/></View>
   </>
 }
 
-const style = StyleSheet.create({
 
-  container: {
-    flexDirection: "column",
-    justifyContent: "space-between",
-    backgroundColor: "gray",
-    height: "80%"
-
-  },
-
-  container1: {
-    width: 100,
-    height: 100,
-    backgroundColor: "red",
-    margin: 5,
-    borderColor: "black",
-    borderWidth: 3,
-  },
-  container2: {
-    width: 100,
-    height: 100,
-    backgroundColor: "blue",
-    margin: 5,
-    borderColor: "black",
-    borderWidth: 3,
-  },
-  container3: {
-    width: 100,
-    height: 100,
-    backgroundColor: "green",
-    margin: 5,
-    borderColor: "black",
-    borderWidth: 3,
-  },
-  container4: {
-    width: 100,
-    height: 100,
-    backgroundColor: "yellow",
-    margin: 5,
-    borderColor: "black",
-    borderWidth: 3,
-  }
-})
 
 
 
@@ -79,3 +39,20 @@ const style = StyleSheet.create({
   </>
 
   */
+
+    /*if(!condiction){
+    return <>
+      <Text> Olá Mundo </Text>
+      <Image style = { style.image } source = { require('./assets/splash.png') ou uri:"link"  icon }/>
+    </>
+  }
+  return <Text> Hello World </Text>
+}
+
+export default function App() {
+  return <>
+      <StatusBar/>
+      <SafeAreaView  style = {style.container}>
+        { exibir(false) }
+      </SafeAreaView>
+  </>*/
