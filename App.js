@@ -5,22 +5,18 @@ import Sc from './components/rolagem';
 import Box from "./components/boxes"
 import TP from './components/testParam';
 import { NavigationContainer } from './node_modules/@react-navigation/native';
-import { createStackNavigator } from './node_modules/@react-navigation/stack';
+import { createBottomTabNavigator } from './node_modules/@react-navigation/bottom-tabs'; 
 
-const Pilha = createStackNavigator()
+const Guias = createBottomTabNavigator()
 
 function TelaHome( { navigation } ){
+  //navigation.setOptions({ title: "Tela de Home" })
   return <>
     <View style = { { flex: 1, alignItems: "center", justifyContent: "center", } } >
       <Text>Home Screen</Text>
       <Text> IFPB </Text>
-      <Button title = "Tela Canal" onPress = { () => navigation.navigate("Canal")  } />
-      <Button title = "Tela de Testes" onPress = { () => navigation.navigate("Teste")  } />
     </View>
   </>
-}
-function TelaTestParam( { navigation } ){
-  return <TP navigation = { navigation } ora = { "Olá Mundo" } />
 }
 
 function TelaCanal( { navigation } ){
@@ -28,7 +24,6 @@ function TelaCanal( { navigation } ){
     <View style = { { flex: 1, alignItems: "center", justifyContent: "center", } } >
       <Text>Canal Screen</Text>
       <Text> ifpb Campus Sousa </Text>
-      <Button title = "Ir para tela de palestras" onPress = { () => navigation.navigate("Palestra", { nome: "José", curso: "Informática" })  } />
     </View>
   </>
 }
@@ -36,38 +31,32 @@ function TelaCanal( { navigation } ){
 function TelaPalestra( { navigation, route } ){
   return <>
     <View style = { { flex: 1, alignItems: "center", justifyContent: "center", } } >
-      <Text>{ route.params.nome }</Text>
-      <Text> { route.params.curso } </Text>
-      <Button title = "Tela Canal" onPress = { () => navigation.goBack()  } />
+      <Text> Lets Go</Text>
+      <Text> Hora de apresentar </Text>
     </View>
   </>
 }
 
 export default function App() {
   return <>
+        <StatusBar barStyle = "light-content" />
         <NavigationContainer>
-          <Pilha.Navigator initialRouteName = "Home" >
-            <Pilha.Screen
+          <Guias.Navigator initialRouteName = "Home" >
+            <Guias.Screen
             name = "Home"
             component = { TelaHome }
-            options = { { title: "Tela Inicial" } }
-            />
-            <Pilha.Screen
+            options = { ( { navigation } ) => ({ title: "Tela Inicial", headerStyle: { backgroundColor: "blue" }, headerTintColor: "white", headerRight: () => <View style = { { marginRight: 15 } } ><Button title = "Olá" color = "gray" onPress = { () => navigation.navigate("Canal") } /></View> }) }/>
+            <Guias.Screen 
             name = "Canal"
             component = { TelaCanal }
             options = { { title: "Tela do Canal" } }
             />
-            <Pilha.Screen
+            <Guias.Screen
             name = "Palestra"
             component = { TelaPalestra }
             options = { { title: "Tela da Palestra" } }
             />
-            <Pilha.Screen
-            name = "Teste"
-            component = { TelaTestParam }
-            options = {{ title: "Tela de Testes" }}
-            />
-          </Pilha.Navigator>
+          </Guias.Navigator>
         </NavigationContainer>
   </>
 }
