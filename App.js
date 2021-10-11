@@ -5,15 +5,16 @@ import Sc from './components/rolagem';
 import Box from "./components/boxes"
 import TP from './components/testParam';
 import { NavigationContainer } from './node_modules/@react-navigation/native';
-import { createBottomTabNavigator } from './node_modules/@react-navigation/bottom-tabs'; 
+import { createDrawerNavigator } from './node_modules/@react-navigation/drawer'; 
+import { mock } from './components/mocks';
 
-const Guias = createBottomTabNavigator()
+const Guias = createDrawerNavigator()
 
 function TelaHome( { navigation } ){
   //navigation.setOptions({ title: "Tela de Home" })
   return <>
     <View style = { { flex: 1, alignItems: "center", justifyContent: "center", } } >
-      <Text>Home Screen</Text>
+      <Text>{ mock.titulo.pag01 }</Text>
       <Text> IFPB </Text>
     </View>
   </>
