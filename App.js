@@ -28,7 +28,7 @@ function TelaCanal( { navigation } ){
   </>
 }
 
-function TelaPalestra( { navigation, route } ){
+function TelaPalestra( { navigation } ){
   return <>
     <View style = { { flex: 1, alignItems: "center", justifyContent: "center", } } >
       <Text> Lets Go</Text>
@@ -45,7 +45,7 @@ export default function App() {
             <Guias.Screen
             name = "Home"
             component = { TelaHome }
-            options = { ( { navigation } ) => ({ title: "Tela Inicial", headerStyle: { backgroundColor: "blue" }, headerTintColor: "white", headerRight: () => <View style = { { marginRight: 15 } } ><Button title = "Olá" color = "gray" onPress = { () => navigation.navigate("Canal") } /></View> }) }/>
+            options = { ( { navigation } ) => ({ title: "Tela Inicial", headerStyle: { backgroundColor: "blue" }, headerTintColor: "white", headerRight: () => <View style = { { marginRight: 15 } } ><Button title = "" color = "gray" onPress = { () => navigation.navigate("Canal") } /></View> }) }/>
             <Guias.Screen 
             name = "Canal"
             component = { TelaCanal }
